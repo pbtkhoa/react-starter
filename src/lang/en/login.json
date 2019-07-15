@@ -1,0 +1,10 @@
+{
+  "title": "Login Page",
+  "label": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "btn": {
+    "login": "Login"
+  }
+}
