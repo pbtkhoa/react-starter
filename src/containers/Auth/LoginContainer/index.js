@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ReactTitle } from 'react-meta-tags';
-import { withTranslation } from 'react-i18next';
 
 import { actLogin } from 'redux/actions/authActions';
 
-import AuthLayout from 'layouts/AuthLayout';
 import LoginForm from './LoginForm';
 
 class LoginPage extends Component {
@@ -23,12 +21,11 @@ class LoginPage extends Component {
     });
   };
   render() {
-    const { t } = this.props;
     return (
-      <AuthLayout>
-        <ReactTitle title={t('login.title')} />
+      <>
         <LoginForm onSubmit={this.onLogin} />
-      </AuthLayout>
+        <Link to="/">Home</Link>
+      </>
     );
   }
 }
@@ -45,4 +42,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(withTranslation()(LoginPage));
+)(LoginPage);

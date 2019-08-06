@@ -1,9 +1,9 @@
 import LoadableProgress from './containers/Common/LoadableProgressContainer';
 
 export const LoginPage = LoadableProgress({
-  loader: () => import('./containers/Auth/LoginContainer')
+  loader: () => import('./pages/Auth/LoginPage')
 });
 
 export const HomePage = LoadableProgress({
-    loader: () => import('./containers/HomeContainer')
-  });
+  loader: () => import('./pages/HomePage')
+});

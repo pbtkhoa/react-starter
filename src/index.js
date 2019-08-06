@@ -8,10 +8,16 @@ import App from './App';
 import * as serviceWorker from './config/serviceWorker';
 
 import './plugins/i18n';
+import { actCheckAuth } from './redux/actions/authActions';
+import { getToken } from './utils/localStorage';
 
-ReactDOM.render(
-  <App store={store} history={history} />,
-  document.getElementById('root')
-);
+const token = getToken();
 
-serviceWorker.unregister();
+store.dispatch(actCheckAuth(token)).then(() => {
+  ReactDOM.render(
+    <App store={store} history={history} />,
+    document.getElementById('root')
+  );
+
+  serviceWorker.unregister();
+});

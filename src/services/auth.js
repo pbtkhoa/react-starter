@@ -29,10 +29,14 @@ class AuthService {
    * @param {*} payload
    */
   async getUserByToken(token) {
-    let userInfo = await new Promise(resolve => {
-      resolve({
-        token: token
-      });
+    let userInfo = await new Promise((resolve, reject) => {
+      if (token) {
+        resolve({
+          token: token
+        });
+      } else {
+        reject();
+      }
     });
 
     return userInfo;
