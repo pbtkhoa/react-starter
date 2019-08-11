@@ -1,7 +1,7 @@
-import { AUTH_LOGIN, AUTH_CHECK, AUTH_LOGOUT } from './../actionTypes';
-import initialState from './../initialState';
+import { setToken, unsetToken } from "utils/localStorage";
 
-import { setToken, unsetToken } from 'utils/localStorage';
+import { AUTH_LOGIN, AUTH_CHECK, AUTH_LOGOUT } from "../actions/authActions";
+import initialState from "../initialState";
 
 export default (state = initialState.auth, action) => {
   switch (action.type) {

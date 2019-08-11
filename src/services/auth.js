@@ -1,46 +1,42 @@
-// import axios from 'config/axios';
+// import axios from 'configs/axios';
 
 class AuthService {
   /**
    * Login
    * @param {*} payload
    */
-  async login(payload) {
-    let userInfo = await new Promise(resolve => {
+  login = payload => {
+    return new Promise(resolve => {
       resolve({
-        token: '12345678'
+        token: "12345678"
       });
     });
-
-    return userInfo;
-  }
+  };
 
   /**
    * Logout
    */
-  logout() {
+  logout = () => {
     return new Promise(resolve => {
       resolve(true);
     });
-  }
+  };
 
   /**
    * Get User By Token
    * @param {*} payload
    */
-  async getUserByToken(token) {
-    let userInfo = await new Promise((resolve, reject) => {
+  getUserByToken = token => {
+    return new Promise((resolve, reject) => {
       if (token) {
         resolve({
-          token: token
+          token
         });
       } else {
         reject();
       }
     });
-
-    return userInfo;
-  }
+  };
 }
 
 export default new AuthService();

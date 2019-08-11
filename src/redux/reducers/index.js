@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
-import { loadingBarReducer } from 'react-redux-loading-bar';
-import { reducer as formReducer } from 'redux-form';
-import authReducer from './authReducer';
+import { combineReducers } from "redux";
+import { connectRouter } from "connected-react-router";
+import { loadingBarReducer } from "react-redux-loading-bar";
+import { reducer as formReducer } from "redux-form";
+import authReducer from "./authReducer";
 
 export default history =>
   combineReducers({

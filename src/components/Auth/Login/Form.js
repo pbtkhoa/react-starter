@@ -1,6 +1,6 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import { Field, reduxForm } from "redux-form";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = props => {
   const { handleSubmit, pristine, submitting } = props;
@@ -8,20 +8,20 @@ const LoginForm = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>{t('login.label.email')}</label>
+        <label>{t("login.label.email")}</label>
         <div>
           <Field name="email" component="input" type="email" />
         </div>
       </div>
       <div>
-        <label>{t('login.label.password')}</label>
+        <label>{t("login.label.password")}</label>
         <div>
           <Field name="password" component="input" type="password" />
         </div>
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>
-          {t('login.btn.login')}
+          {t("login.btn.login")}
         </button>
       </div>
     </form>
@@ -29,5 +29,5 @@ const LoginForm = props => {
 };
 
 export default reduxForm({
-  form: 'login'
+  form: "login"
 })(LoginForm);

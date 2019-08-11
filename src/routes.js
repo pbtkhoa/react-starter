@@ -1,16 +1,18 @@
-import { LoginPage, HomePage } from './LazyRouting';
+import { lazy } from "react";
 
-const Routes = [
+const LoginPage = lazy(() => import("./containers/Auth/LoginContainer"));
+
+const HomePage = lazy(() => import("./containers/HomeContainer"));
+
+export default [
   {
-    path: '/',
+    path: "/",
     exact: true,
     component: HomePage
   },
   {
-    path: '/auth/login',
+    path: "/auth/login",
     exact: true,
     component: LoginPage
   }
 ];
-
-export default Routes;

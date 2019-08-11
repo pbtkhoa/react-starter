@@ -1,32 +1,22 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import { actLogin } from 'redux/actions/authActions';
-
-import LoginForm from './LoginForm';
+import { actLogin } from "redux/actions/authActions";
+import AuthLogin from "components/Auth/Login";
+import withGuest from "utils/withGuest";
 
 class LoginPage extends Component {
-  state = {
-    isSubmitting: false,
-    dataResponse: null
-  };
-
   onLogin = values => {
     const { history, onLogin } = this.props;
 
     onLogin(values).then(() => {
-      history.push('/');
+      history.push("/");
     });
   };
   render() {
-    return (
-      <>
-        <LoginForm onSubmit={this.onLogin} />
-        <Link to="/">Home</Link>
-      </>
-    );
+    return <AuthLogin onLogin={this.onLogin} />;
   }
 }
 
@@ -39,7 +29,10 @@ const mapDispatchToProps = dispatch => ({
   onLogin: values => dispatch(actLogin(values))
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
+export default compose(
+  withGuest,
+  connect(
+    null,
+    mapDispatchToProps
+  )
 )(LoginPage);
